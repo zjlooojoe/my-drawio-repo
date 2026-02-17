@@ -1,0 +1,126 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.4.0">
+  <diagram name="第 1 页" id="bYdL96DTBmtmB5aJ-nlD">
+    <mxGraphModel dx="1988" dy="918" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="Registry&#xa;[&quot;ctx_tables_key&quot;]" vertex="1">
+          <mxGeometry height="1394" width="156" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="rewrite_by_lua" vertex="1">
+          <mxGeometry height="1394" width="150" x="355" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="access_by_lua" vertex="1">
+          <mxGeometry height="1394" width="150" x="555" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="content_by_lua" vertex="1">
+          <mxGeometry height="1394" width="150" x="755" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="log_by_lua" vertex="1">
+          <mxGeometry height="1394" width="150" x="955" as="geometry" />
+        </mxCell>
+        <mxCell id="7" edge="1" parent="1" source="3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="lua_rawgeti(-1, ctx_ref=100)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="266" y="178" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="3" value="{user=&quot;admin&quot;}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="263" y="226" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" edge="1" parent="1" source="3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="luaL_unref(100), luaL_ref → 新ref=100">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="266" y="349" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" edge="1" parent="1" source="4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="lua_rawgeti(-1, ctx_ref=100)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="366" y="509" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="4" value="{user=&quot;admin&quot;, request_id=12345}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="363" y="557" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="luaL_unref(100), luaL_ref → 新ref=100">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="366" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="lua_rawgeti(-1, ctx_ref=100)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="466" y="859" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="5" value="{user=&quot;admin&quot;, authenticated=true}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="463" y="915" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="6" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="lua_rawgeti(-1, ctx_ref=100)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="566" y="1038" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="6" value="{user=&quot;admin&quot;, authenticated=true}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="563" y="1094" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="6" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="2" value="luaL_unref(100)&#xa;ctx_ref = LUA_NOREF">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="566" y="1240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="初始状态&#xa;Registry[100] = {user=&quot;admin&quot;}" vertex="1">
+          <mxGeometry height="67" width="248" x="-46" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="ngx.ctx.user = &quot;admin&quot;&#xa;ngx.ctx.request_id = 12345" vertex="1">
+          <mxGeometry height="67" width="220" x="320" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="Registry[100] = {&#xa;  user=&quot;admin&quot;,&#xa;  request_id=12345&#xa;}" vertex="1">
+          <mxGeometry height="104" width="156" y="369" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="检查认证&#xa;ngx.ctx.authenticated = true" vertex="1">
+          <mxGeometry height="67" width="229" x="516" y="577" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="Registry[100] = {&#xa;  user=&quot;admin&quot;,&#xa;  request_id=12345,&#xa;  authenticated=true&#xa;}" vertex="1">
+          <mxGeometry height="123" width="161" x="-2" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="print(&quot;Welcome, &quot; .. ngx.ctx.user)&#xa;输出: Welcome, admin" vertex="1">
+          <mxGeometry height="67" width="264" x="698" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="ngx.log(ERR, &quot;User &quot; .. ngx.ctx.user)&#xa;记录日志" vertex="1">
+          <mxGeometry height="67" width="287" x="887" y="1114" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;" value="Registry[100] = nil" vertex="1">
+          <mxGeometry height="49" width="156" y="1260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
