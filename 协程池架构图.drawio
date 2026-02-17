@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.4.0">
+  <diagram name="第 1 页" id="b8-BCGHeeXNOFKreyArz">
+    <mxGraphModel dx="1020" dy="787" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="请求处理流程" vertex="1">
+          <mxGeometry height="176" width="927" x="840" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Registry coroutines_key" vertex="1">
+          <mxGeometry height="401" width="812" x="8" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="活跃协程链表&#xa;ref 100 → lua_State_A&#xa;ref 101 → lua_State_B&#xa;ref 102 → lua_State_C" vertex="1">
+          <mxGeometry height="126" width="222" x="43" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="空闲协程链表&#xa;ref 200 → lua_State_D&#xa;ref 201 → lua_State_E&#xa;ref 202 → lua_State_F" vertex="1">
+          <mxGeometry height="126" width="222" x="315" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="freelist&#xa;5 → 10 → 15 → nil" vertex="1">
+          <mxGeometry height="78" width="197" x="588" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="ellipse;aspect=fixed;strokeWidth=2;whiteSpace=wrap;" value="Registry" vertex="1">
+          <mxGeometry height="72" width="72" x="276" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="请求到达&#xa;1. 从空闲链表获取协程&#xa;或创建新协程" vertex="1">
+          <mxGeometry height="102" width="260" x="1161" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="协程处理请求&#xa;2. 协程 yield 保存状态&#xa;3. 协程 resume 恢复执行" vertex="1">
+          <mxGeometry height="102" width="237" x="875" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="协程执行完毕&#xa;4a. 重置协程，加入空闲链表&#xa;4b. 空闲链表满，释放协程" vertex="1">
+          <mxGeometry height="126" width="260" x="1471" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="7" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.7;entryX=0.32;entryY=0;" target="4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="91" y="184" />
+              <mxPoint x="91" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="7" style="curved=1;startArrow=none;endArrow=block;exitX=0.36;exitY=1;entryX=0.1;entryY=0;" target="5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="286" y="184" />
+              <mxPoint x="286" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="7" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.64;entryX=0.38;entryY=0;" target="6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="628" y="184" />
+              <mxPoint x="628" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="8" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="5" value="获取协程">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1291" y="184" />
+              <mxPoint x="426" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="9" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" target="4" value="运行中">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="993" y="184" />
+              <mxPoint x="242" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="10" style="curved=1;startArrow=none;endArrow=block;exitX=0.1;exitY=1;entryX=0.92;entryY=0;" target="5" value="归还/释放">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1456" y="184" />
+              <mxPoint x="572" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="10" style="curved=1;startArrow=none;endArrow=block;exitX=0.7;exitY=1;entryX=0.58;entryY=0;" target="6" value="释放引用">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1674" y="184" />
+              <mxPoint x="727" y="221" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
